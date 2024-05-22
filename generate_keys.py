@@ -26,10 +26,7 @@ def generate_keys():
 
 private_key, public_key = generate_keys()
 
-print("-----BEGIN PRIVATE KEY-----")
-print(private_key.decode()[27:-25])  # remove the first and last line
-print("-----END PRIVATE KEY-----\n")
 
-print("-----BEGIN PUBLIC KEY-----")
-print(public_key.decode()[26:-24])  # remove the first and last line
-print("-----END PUBLIC KEY-----")
+print(private_key.decode())  
+
+print(public_key.decode())  
