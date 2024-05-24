@@ -1,3 +1,3 @@
-from tk_interface import create_tk_interface
+from tk_main_menu import create_main_menu
 if __name__ == "__main__":
-    create_tk_interface()
+    create_main_menu()
