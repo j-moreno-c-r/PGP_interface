@@ -1,7 +1,8 @@
 import tkinter as tk
 import base64
-from encrypt_decrypt import encrypt, decrypt
-from qr_keys_output import create_qr_code
+
+from .tool_functions.encrypt_decrypt import encrypt, decrypt
+from .tool_functions.qr_keys_output import create_qr_code
 
 def create_encrypt_interface():
     window = tk.Tk()

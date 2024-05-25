@@ -3,7 +3,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
 def encrypt(message):
-    with open('public_key.txt', 'r') as file:
+    with open('keys/public_key.txt', 'r') as file:
         public_key = file.read()
 
     public_key_bytes = public_key.encode('utf-8')
@@ -21,7 +21,7 @@ def encrypt(message):
 
 
 def decrypt(encrypted):
-    with open('private_key.txt', 'r') as file:
+    with open('keys/private_key.txt', 'r') as file:
         private_key = file.read()
     private_key_bytes = private_key.encode('utf-8')
 

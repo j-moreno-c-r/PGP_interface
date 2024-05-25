@@ -1,5 +1,5 @@
 import tkinter as tk
-from tk_encrypt_decrypt import create_encrypt_interface, create_decrypt_interface
+from .tk_encrypt_decrypt import create_encrypt_interface, create_decrypt_interface
 
 def main_window():
     window = tk.Tk()

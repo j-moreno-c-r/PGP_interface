@@ -1,6 +1,5 @@
 import pyqrcode
 import tkinter as tk
-from PIL import Image, ImageTk
 
 def create_qr_code(key,subtitle, size=5):
         qr_code = pyqrcode.create(key, error='L', version=30)

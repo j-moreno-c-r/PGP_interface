@@ -1,7 +1,8 @@
 import tkinter as tk
-from tk_qr_menu import create_qr_interface
-from tk_register_keys import register_keys
-from tk_main_decry_encry import main_window
+
+from .tk_qr_menu import create_qr_interface
+from .tk_register_keys import register_keys
+from .tk_main_decry_encry import main_window
 def show_new_window(title):
     new_window = tk.Toplevel(root)
     new_window.title(title)

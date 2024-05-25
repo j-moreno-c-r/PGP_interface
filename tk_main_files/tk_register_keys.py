@@ -16,7 +16,7 @@ def register_keys():
         key_entry.pack()
 
         def submit_key():
-            with open('private_key.txt', 'w') as key_file:
+            with open('keys/private_key.txt', 'w') as key_file:
                 key_file.write(key_entry.get("1.0", "end-1c"))  # get text from Text widget
             key_window.destroy()
         submit_button = Button(key_window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_key)
@@ -36,7 +36,7 @@ def register_keys():
         public_key_entry.pack()
 
         def submit_public_key():
-            with open('public_key.txt', 'w') as key_file:
+            with open('keys/public_key.txt', 'w') as key_file:
                 key_file.write(public_key_entry.get("1.0", "end-1c"))  # get text from Text widget
             public_key_window.destroy()
 
