@@ -2,19 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
-
-from tkinter import PhotoImage
 from .tk_qr_menu import create_qr_interface
 from .tk_register_keys import register_keys
 from .tk_main_decry_encry import main_window
-
-def show_new_window(title):
-    new_window = ThemedTk(theme="clearlooks")
-    new_window.configure(bg='black')
-    new_window.title(title)
-    style = ttk.Style(new_window)
-    style.configure('TLabel', background='black', foreground='#98FB98', font=('Consolas', 12))
-    ttk.Label(new_window, text=f"This is the {title} window").pack()
 
 def create_main_menu():
     global root
@@ -27,7 +17,7 @@ def create_main_menu():
     bg_image = ImageTk.PhotoImage(image)
     bg_label = tk.Label(root, image=bg_image)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
-    root.geometry("%dx%d" % (image.width, image.height))  # Set window size to image size
+    root.geometry("%dx%d" % (image.width, image.height))
 
     button1 = tk.Button(root, text="Register Keys", command=lambda: register_keys(), bg='black', fg='#98FB98', font=('Roboto', 12), borderwidth=2, relief="groove")
     button1.place(x=20, y=20)  

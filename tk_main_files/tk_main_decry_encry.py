@@ -3,7 +3,7 @@ from .tk_encrypt_decrypt import create_encrypt_interface, create_decrypt_interfa
 
 def main_window():
     window = tk.Tk()
-    window.title("Main Window")
+    window.title("Encryptio Decryption Menu")
     window.configure(bg='black')
 
     def open_encrypt_window():

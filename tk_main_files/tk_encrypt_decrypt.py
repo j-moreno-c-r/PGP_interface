@@ -32,7 +32,7 @@ def create_encrypt_interface():
     window.grid_columnconfigure(0, weight=1)
     window.grid_rowconfigure((4, 7), weight=1)
 
-    encrypt_button = tk.Button(window, text="Encrypt", command=encrypt_message, font=("Courier", 14), bg='black', fg='green2')
+    encrypt_button = tk.Button(window, text="Encrypt", command=encrypt_message, font=("Courier", 14), bg='black', fg='green2',  borderwidth=2, relief="groove")
     message_entry = tk.Text(window, height=10, width=50, font=("Courier", 14), bg='black', fg='green2', highlightbackground='red', highlightcolor='red', highlightthickness=2)
     message_label.grid(row=0, column=0, sticky='w', padx=10, pady=10)
     message_entry.grid(row=1, column=0, sticky='ew', padx=10, pady=10)
@@ -74,7 +74,7 @@ def create_decrypt_interface():
     window.grid_rowconfigure((4, 7), weight=1)
 
     
-    decrypt_button = tk.Button(window, text="Decrypt", command=decrypt_message, font=("Courier", 14), bg='black', fg='green2')
+    decrypt_button = tk.Button(window, text="Decrypt", command=decrypt_message, font=("Courier", 14), bg='black', fg='green2',  borderwidth=2, relief="groove")
     encrypted_message_entry = tk.Text(window, height=10, width=50, font=("Courier", 14), bg='black', fg='green2', highlightbackground='red', highlightcolor='red', highlightthickness=2)
     encrypted_label.grid(row=0, column=0, sticky='w', padx=10, pady=10)
     button.grid(row=0, column=1, sticky='w', padx=10, pady=10)
