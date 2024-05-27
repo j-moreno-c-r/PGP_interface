@@ -1,39 +1,27 @@
-from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.asymmetric import padding
+import gnupg
 
-def encrypt(message):
-    with open('keys/public_key.txt', 'r') as file:
-        public_key = file.read()
+# Initialize the gnupg object
+gpg = gnupg.GPG()
 
-    public_key_bytes = public_key.encode('utf-8')
-    public_key = serialization.load_pem_public_key(public_key_bytes)
+def encrypt_message(message, public_key_file):
+    # Import the public key
+    with open(public_key_file) as f:
+        public_key = f.read()
+    import_result = gpg.import_keys(public_key)
 
-    encrypted = public_key.encrypt(
-        message.encode('utf-8'),
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return encrypted
+    # Get the key fingerprint
+    key_fingerprint = import_result.fingerprints[0]
 
+    # Encrypt the message
+    encrypted_data = gpg.encrypt(message, key_fingerprint)
+    return encrypted_data
 
-def decrypt(encrypted):
-    with open('keys/private_key.txt', 'r') as file:
-        private_key = file.read()
-    private_key_bytes = private_key.encode('utf-8')
+def decrypt_message(encrypted_data, private_key_file):
+    # Import the private key
+    with open(private_key_file) as f:
+        private_key = f.read()
+    gpg.import_keys(private_key)
 
-    private_key = serialization.load_pem_private_key(private_key_bytes, password=None)
-    
-    original_message = private_key.decrypt(
-        encrypted,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return original_message
-
+    # Decrypt the message
+    decrypted_data = gpg.decrypt(str(encrypted_data))
+    return decrypted_data

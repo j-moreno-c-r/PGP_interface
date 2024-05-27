@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
 from .tk_qr_menu import create_qr_interface

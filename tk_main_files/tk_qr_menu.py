@@ -1,9 +1,9 @@
 from .tool_functions.qr_keys_output import create_qr_code
 import tkinter as tk
 
-with open('keys/private_key.txt', 'r') as file:
+with open('keys/private_key.asc', 'r') as file:
     private_key = str(file.read())
-with open('keys/public_key.txt', 'r') as file:
+with open('keys/public_key.asc', 'r') as file:
     public_key = str(file.read())
 
 def create_qr_interface():

@@ -16,3 +16,5 @@ clone the repo and run a:
 ```bash
 python -r instal requirements.txt
 ```
+for now the qr codes has a proble in the sizes
+but the encription and decreptions its working
