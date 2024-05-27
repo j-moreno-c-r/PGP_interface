@@ -4,7 +4,9 @@ charset-normalizer==3.3.2
 crypto==1.4.1
 cryptography==42.0.7
 idna==3.7
+imageio==2.34.1
 Naked==0.1.32
+numpy==1.26.4
 PGPy==0.6.0
 pillow==10.3.0
 pyasn1==0.6.0

@@ -58,7 +58,7 @@ def create_decrypt_interface():
         text = encrypted_message_entry.get("1.0", tk.END)
         return text
     text_qr = get_text_from_entry()
-    button = tk.Button(window, text="Qr encripted message", command=lambda: create_qr_code(text_qr,"Encrypted Message", size=3,v=10), font=("Courier", 14), bg='black', fg='green2')
+    button = tk.Button(window, text="Qr encripted message", command=lambda: create_qr_code(text_qr,v=15), font=("Courier", 14), bg='black', fg='green2')
 
 
     decrypted_scrollbar = tk.Scrollbar(window, command=decrypted_message_text.yview)
