@@ -1,8 +1,4 @@
-For now you can clone the repo in your computer generate discarting keys with:
-```bash
-python generate_keys
-```
-And test the program i will update this in the next days, dont forget to create a venv because this project has a lot of dependencies...
+The pgp in this project its descarted only for tests, the interface will only works if you import this keys or register a key imported and logged on your system.
 If you forget how follow the instructions(Linux OS):
 ```bash
 python -m venv .pgp_interface

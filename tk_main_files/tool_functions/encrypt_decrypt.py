@@ -25,3 +25,6 @@ def decrypt_message(encrypted_data, private_key_file):
     # Decrypt the message
     decrypted_data = gpg.decrypt(str(encrypted_data))
     return decrypted_data
+
+
+
