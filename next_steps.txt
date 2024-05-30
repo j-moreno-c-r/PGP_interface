@@ -2,5 +2,4 @@ things to add to the pgp project:
 1:list of the reistered public keys
 2:grid of the frames of the animated qr gifs
 3:bg for the other pages
-4:refactor of the image paths
 

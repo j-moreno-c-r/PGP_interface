@@ -12,7 +12,7 @@ def create_main_menu():
     root.title("Main Menu")
 
     # Add background image
-    image = Image.open("main_bg.jpeg")
+    image = Image.open("images/main_bg.jpeg")
     bg_image = ImageTk.PhotoImage(image)
     bg_label = tk.Label(root, image=bg_image)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
