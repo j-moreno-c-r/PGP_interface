@@ -12,3 +12,15 @@ clone the repo and run a:
 ```bash
 python -r instal requirements.txt
 ```
+you can run with 
+```bash 
+python main.py
+```
+or with     
+```bash 
+chmod +x ./run.sh
+```
+and next 
+```bash 
+./run.sh
+```
