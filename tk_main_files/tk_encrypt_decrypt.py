@@ -1,6 +1,4 @@
 import tkinter as tk
-import base64
-
 from .tool_functions.encrypt_decrypt import encrypt_message, decrypt_message
 from .tool_functions.qr_keys_output import create_qr_code
 

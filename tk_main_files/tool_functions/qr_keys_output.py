@@ -11,7 +11,7 @@ def animate(i, frames, label):
         label.image = frame
         label.after(100, animate, i+1, frames, label)
 
-def create_qr_code(key, max_size=2953, size=5, duration=1,v=40):
+def create_qr_code(key, max_size=2953, size=5, duration=20,v=40):
         # Divida a chave em partes menores
         chunks = [key[i:i+max_size] for i in range(0, len(key), max_size)]
         

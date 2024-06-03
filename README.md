@@ -24,3 +24,5 @@ and next
 ```bash 
 ./run.sh
 ```
+
+list of contacts in the next pull 

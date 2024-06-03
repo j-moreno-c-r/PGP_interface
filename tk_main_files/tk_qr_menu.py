@@ -15,6 +15,7 @@ def create_qr_interface():
     button.pack()
     button2 = tk.Button(root, text="QR code Public Key", command=lambda: create_qr_code(public_key), font=("Courier", 14), bg='black', fg='green2',  borderwidth=2, relief="groove")
     button2.pack()
+    
 
     root.bind('<Control-w>', lambda event: root.destroy())
 
