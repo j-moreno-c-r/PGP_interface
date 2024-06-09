@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import Toplevel, Text, Button, Label
 from ttkthemes import ThemedTk
+from .tool_functions.contacts import create_the_window_contacts
 def contacts_page():
     global window
     window = ThemedTk(theme="clearlooks")
     window.configure(bg='black')
-    window.title("Register Keys")
+    window.title("Contacts")
 
     def open_public_key_window():
         public_key_window = Toplevel(window)
@@ -26,7 +27,10 @@ def contacts_page():
         submit_button = Button(public_key_window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_public_key,  borderwidth=2, relief="groove")
         submit_button.pack()
 
+    
     public_key_button = Button(window, text="Register Recipient's Public Key", font=("Courier", 14), bg='black', fg='green2', command=open_public_key_window,  borderwidth=2, relief="groove")
     public_key_button.grid(row=9, column=0, sticky='ew', padx=10, pady=10)
 
+    select_contacts_button = Button(window, text="Select a Contact", font=("Courier", 14), bg='black', fg='green2', command=create_the_window_contacts,  borderwidth=2, relief="groove")
+    select_contacts_button.grid(row=9, column=5, sticky='ew', padx=10, pady=10)
     window.mainloop()
