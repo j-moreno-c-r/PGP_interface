@@ -1,4 +1,5 @@
 import tkinter as tk
+import gnupg
 from tkinter import Toplevel, Text, Button, Label
 from ttkthemes import ThemedTk
 from .tool_functions.contacts import create_the_window_contacts
@@ -19,11 +20,27 @@ def contacts_page():
         public_key_entry = Text(public_key_window, height=10, width=50, font=("Courier", 14), bg='black', fg='green2', highlightbackground='red', highlightcolor='red', highlightthickness=2)
         public_key_entry.pack()
 
-        def submit_public_key():
-            with open('keys/public_key.asc', 'w') as key_file:
-                key_file.write(public_key_entry.get("1.0", "end-1c"))  # get text from Text widget
-            public_key_window.destroy()
 
+        def submit_public_key():
+            gpg = gnupg.GPG()
+
+            public_key = public_key_entry.get("1.0", "end-1c")  # get text from Text widget
+
+            # Check if the key is already in the keyring
+            key_already_in_keyring = any(key['fingerprint'] == public_key for key in gpg.list_keys())
+
+            if not key_already_in_keyring:
+                # Import the key
+                import_result = gpg.import_keys(public_key)
+
+                if import_result.count != 1:
+                    raise ValueError("Failed to import the public key")
+
+            # Write the key to a file
+            with open('keys/public_key.asc', 'w') as key_file:
+                key_file.write(public_key)
+
+            public_key_window.destroy()
         submit_button = Button(public_key_window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_public_key,  borderwidth=2, relief="groove")
         submit_button.pack()
 
