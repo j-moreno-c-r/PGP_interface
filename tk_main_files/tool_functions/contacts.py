@@ -47,6 +47,7 @@ def create_the_window_contacts():
     global root
     root = Tk()
     root.configure(bg='black')
+    root.geometry("1200x500")
     root.title("Main Menu")
 
     # Create a main frame

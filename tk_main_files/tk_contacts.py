@@ -41,6 +41,7 @@ def contacts_page():
                 key_file.write(public_key)
 
             public_key_window.destroy()
+            
         submit_button = Button(public_key_window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_public_key,  borderwidth=2, relief="groove")
         submit_button.pack()
 
