@@ -17,7 +17,7 @@ def create_encrypt_interface():
 
     def encrypt_message_tk():
         message = message_entry.get("1.0", tk.END)
-        encrypted_message = encrypt_message(message, 'keys/public_key.asc')
+        encrypted_message = encrypt_message(message, 'keys/fingerprint_pubkey.asc')
         encrypted_message = encrypted_message
         encrypted_message_text.insert(tk.END, encrypted_message)
 

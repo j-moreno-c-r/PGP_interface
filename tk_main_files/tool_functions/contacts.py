@@ -33,6 +33,10 @@ def extract_armored_pubkey(contact_text):
     armored_key = gpg.export_keys(key_id)
     with open('keys/public_key.asc', 'w') as key_file:
         key_file.write(armored_key)
+        import_result = gpg.import_keys(armored_key)
+    with open('keys/fingerprint_pubkey.asc', 'w') as key_file:
+        key_fingerprint = import_result.fingerprints[0]
+        key_file.write(key_fingerprint)
 
 
 
