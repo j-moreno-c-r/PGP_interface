@@ -25,4 +25,23 @@ and next
 ./run.sh
 ```
 
-list of contacts in the next pull 
+For now the interface has a liltle problem, burocracy of the lib, you need to trust a pubkey before write for this contact, and for now you will need to do this for terminal, i will fix this in future updates, you can trust a pubkey with:
+
+you can see the fingerprints with
+```bash
+gpg --list-keys 
+```
+with the fingerprint of a pubkey:
+```bash
+gpg --edit-key The fingerprint of the key
+
+gpg> trust
+
+Your decision? 5
+
+Do you really want to set this key to ultimate trust? (y/N) y
+
+gpg> save
+
+```
+!["..."](./images/registerkeys.jpeg "Cypherpunks write code ")
