@@ -12,6 +12,10 @@ clone the repo and run a:
 ```bash
 python -r instal requirements.txt
 ```
+if the diabolical tkinter still dont work maybe you will need to install this in your system, and run again the install of the requirements.txt to install the ttkthemes...
+```bash
+sudo apt-get install python3-tk
+```
 you can run with 
 ```bash 
 python main.py
@@ -44,4 +48,5 @@ Do you really want to set this key to ultimate trust? (y/N) y
 gpg> save
 
 ```
+please if you want to up a PR dont up your keys is hard to me to verify and maybe you will expose this...
 !["..."](./images/registerkeys.jpeg "Cypherpunks write code ")
