@@ -49,4 +49,5 @@ gpg> save
 
 ```
 please if you want to up a PR dont up your keys is hard to me to verify and maybe you will expose this...
+If you dont have keys, use this execelent workshop: https://github.com/CasaVinteUm/workshop-pgp 
 !["..."](./images/registerkeys.jpeg "Cypherpunks write code ")
