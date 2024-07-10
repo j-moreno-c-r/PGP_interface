@@ -14,6 +14,9 @@ def create_encrypt_interface():
 
     encrypted_scrollbar = tk.Scrollbar(window, command=encrypted_message_text.yview)
     encrypted_message_text['yscrollcommand'] = encrypted_scrollbar.set
+    def gtc(dtxt):
+        window.clipboard_clear()
+        window.clipboard_append(dtxt)
 
     def encrypt_message_tk():
         message = message_entry.get("1.0", tk.END)
@@ -37,6 +40,10 @@ def create_encrypt_interface():
     encrypted_label.grid(row=3, column=0, sticky='w', padx=10, pady=10)
     encrypted_message_text.grid(row=4, column=0, sticky='nsew', padx=10, pady=10)
     encrypted_scrollbar.grid(row=4, column=1, sticky='ns', padx=10, pady=10)
+    copy_button = tk.Button(window, text="Copy", command=lambda: gtc(encrypted_message_text.get("1.0", tk.END)), font=("Courier", 14), bg='black', fg='green2', borderwidth=2, relief="groove")
+    encrypted_scrollbar.grid(row=4, column=1, sticky='ns', padx=10, pady=10)
+    copy_button.grid(row=5, column=0, sticky='ew', padx=10, pady=10)
+
 
     window.mainloop()
 
