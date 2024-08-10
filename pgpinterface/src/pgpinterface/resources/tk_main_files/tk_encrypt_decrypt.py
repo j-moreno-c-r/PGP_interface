@@ -1,7 +1,7 @@
 import tkinter as tk
 from .tool_functions.encrypt_decrypt import encrypt_message, decrypt_message
 from .tool_functions.qr_keys_output import create_qr_code
-
+from .tool_functions.absolute_paths import private_key
 def create_encrypt_interface():
     window = tk.Tk()
     window.title("Encryption")
@@ -72,7 +72,7 @@ def create_decrypt_interface():
     def decrypt_message_tk():
         encrypted_message = encrypted_message_entry.get("1.0", tk.END)
         encrypted_message = encrypted_message
-        decrypted_message = decrypt_message(encrypted_message, 'keys/private_key.asc')
+        decrypted_message = decrypt_message(encrypted_message, private_key())
         decrypted_message_text.insert(tk.END, decrypted_message)
     def close_window(event):
         window.destroy()

@@ -3,6 +3,7 @@ import gnupg
 from tkinter import Toplevel, Text, Button, Label
 from ttkthemes import ThemedTk
 from .tool_functions.contacts import create_the_window_contacts
+from .tool_functions.absolute_paths import public_key
 def contacts_page():
     global window
     window = ThemedTk(theme="clearlooks")
@@ -24,20 +25,20 @@ def contacts_page():
         def submit_public_key():
             gpg = gnupg.GPG()
 
-            public_key = public_key_entry.get("1.0", "end-1c")  # get text from Text widget
+            pub_key = public_key_entry.get("1.0", "end-1c")  # get text from Text widget
 
             # Check if the key is already in the keyring
-            key_already_in_keyring = any(key['fingerprint'] == public_key for key in gpg.list_keys())
+            key_already_in_keyring = any(key['fingerprint'] == pub_key for key in gpg.list_keys())
 
             if not key_already_in_keyring:
                 # Import the key
-                import_result = gpg.import_keys(public_key)
+                import_result = gpg.import_keys(pub_key)
 
                 if import_result.count != 1:
                     raise ValueError("Failed to import the public key")
 
             # Write the key to a file
-            with open('keys/public_key.asc', 'w') as key_file:
+            with open(public_key(), 'w') as key_file:
                 key_file.write(public_key)
 
             public_key_window.destroy()

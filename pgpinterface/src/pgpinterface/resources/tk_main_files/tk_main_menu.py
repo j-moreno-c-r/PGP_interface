@@ -5,14 +5,15 @@ from .tk_contacts import contacts_page
 from .tk_configs import configs_page 
 from .first_acess_page import first_register
 from .tk_main_decry_encry import main_window
+from .tool_functions.absolute_paths import private_key, main_bg
 
 def create_main_menu():
     global root
     root = ThemedTk(theme="clearlooks")
     root.configure(bg='black')
     root.title("Main Menu")
-    with open('keys/private_key.asc', 'r') as file:
-        private_key = str(file.read())
+    with open(private_key(), 'r') as file:
+        priv_key = str(file.read())
 
         
     if private_key == "":
@@ -21,7 +22,7 @@ def create_main_menu():
 
 
     # Add background image
-    image = Image.open("images/main_bg.jpeg")
+    image = Image.open(main_bg())
     bg_image = ImageTk.PhotoImage(image)
     bg_label = tk.Label(root, image=bg_image)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)

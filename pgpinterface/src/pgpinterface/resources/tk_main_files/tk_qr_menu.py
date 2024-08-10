@@ -1,9 +1,11 @@
 from .tool_functions.qr_keys_output import create_qr_code
+from .tool_functions.absolute_paths import private_key, public_key
 import tkinter as tk
+from .tool_functions.absolute_paths import public_key
 
-with open('keys/private_key.asc', 'r') as file:
+with open(private_key(), 'r') as file:
     private_key = str(file.read())
-with open('keys/public_key.asc', 'r') as file:
+with open(public_key(), 'r') as file:
     public_key = str(file.read())
 
 def create_qr_interface():

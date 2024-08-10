@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import Canvas, Scrollbar, Frame, CENTER
 from ttkthemes import ThemedTk
 from  ..tk_encrypt_decrypt import create_encrypt_interface 
+from ..tool_functions.absolute_paths import public_key, figerprint_pubkey
 
 gnupg_home = os.path.join(os.path.expanduser('~'), '.gnupg')
 gpg = gnupg.GPG(gnupghome=gnupg_home)
@@ -31,10 +32,10 @@ def extract_armored_pubkey(contact_text):
     # Extract key id from the contact_text
     key_id = contact_text.split(',')[0].split(':')[1].strip()
     armored_key = gpg.export_keys(key_id)
-    with open('keys/public_key.asc', 'w') as key_file:
+    with open(public_key(), 'w') as key_file:
         key_file.write(armored_key)
         import_result = gpg.import_keys(armored_key)
-    with open('keys/fingerprint_pubkey.asc', 'w') as key_file:
+    with open(figerprint_pubkey(), 'w') as key_file:
         key_fingerprint = import_result.fingerprints[0]
         key_file.write(key_fingerprint)
 

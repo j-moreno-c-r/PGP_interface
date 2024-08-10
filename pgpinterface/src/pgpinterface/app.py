@@ -1,7 +1,7 @@
 """
 a simple pgp interface in python for messages 
 """
-
+from .resources.tk_main_files.tk_main_menu import create_main_menu
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -9,12 +9,7 @@ from toga.style.pack import COLUMN, ROW
 
 class pgpinterface(toga.App):
     def startup(self):
-        """Construct and show the Toga application.
-
-        Usually, you would add your application to a main content box.
-        We then create a main window (with a name matching the app), and
-        show the main window.
-        """
+        create_main_menu()
         main_box = toga.Box()
 
         self.main_window = toga.MainWindow(title=self.formal_name)

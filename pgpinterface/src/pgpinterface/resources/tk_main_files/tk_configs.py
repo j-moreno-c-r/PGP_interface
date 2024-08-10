@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import Toplevel, Text, Button, Label
 from ttkthemes import ThemedTk
 from .tk_qr_menu import create_qr_interface
+from .tool_functions.absolute_paths import private_key
 def configs_page():
     global window
     window = ThemedTk(theme="clearlooks")
@@ -20,7 +21,7 @@ def configs_page():
         key_entry.pack()
 
         def submit_key():
-            with open('keys/private_key.asc', 'w') as key_file:
+            with open(private_key(), 'w') as key_file:
                 key_file.write(key_entry.get("1.0", "end-1c"))  # get text from Text widget
             key_window.destroy()
         submit_button = Button(key_window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_key,  borderwidth=2, relief="groove")
