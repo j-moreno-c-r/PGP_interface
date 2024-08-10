@@ -1,33 +1,20 @@
-The pgp in this project its descarted only for tests, the interface will only works if you import this keys or register a key imported and logged on your system.
-If you forget how follow the instructions(Linux OS):
+I use briefcase to admin and build this project,if you want to contribute to use this you will need to install the briefcase admin:
 ```bash
-python -m venv .pgp_interface
-source .pgp-interface/bin/activate
+pip install briefcase
 ```
-The result will be something like:
+in the root of the code: /PGP_interface/pgpinterface/src/pgpinterface/resources, run:
 ```bash
-(..pgp-interface) username:~/directory name$ 
+pip install -r requirements.txt
 ```
-clone the repo and run a:
-```bash
-python -r instal requirements.txt
-```
-if the diabolical tkinter still dont work maybe you will need to install this in your system, and run again the install of the requirements.txt to install the ttkthemes...
-```bash
-sudo apt-get install python3-tk
-```
-you can run with 
+in the:/PGP_interface/pgpinterface run:
 ```bash 
-python main.py
+briefcase create
 ```
-or with     
+later
 ```bash 
-chmod +x ./run.sh
+briefcase dev
 ```
-and next 
-```bash 
-./run.sh
-```
+Now having fun... and RTFM the briefcase docs:https://docs.beeware.org/en/latest/
 
 For now the interface has a liltle problem, burocracy of the lib, you need to trust a pubkey before write for this contact, and for now you will need to do this for terminal, i will fix this in future updates, you can trust a pubkey with:
 
@@ -50,4 +37,4 @@ gpg> save
 ```
 please if you want to up a PR dont up your keys is hard to me to verify and maybe you will expose this...
 If you dont have keys, use this execelent workshop: https://github.com/CasaVinteUm/workshop-pgp 
-!["..."]( pgpinterface/src/pgpinterface/images/registerkeys.jpeg "Cypherpunks write code ")
+!["..."](./images/registerkeys.jpeg "Cypherpunks write code ")
