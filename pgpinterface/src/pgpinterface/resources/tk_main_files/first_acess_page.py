@@ -1,6 +1,7 @@
 from tkinter import Text, Button, Label
 from ttkthemes import ThemedTk
 from .tool_functions.absolute_paths import private_key
+privatekey = private_key()
 def first_register():
     global window
     window = ThemedTk(theme="clearlooks")
@@ -16,7 +17,7 @@ def first_register():
     key_entry.pack()
 
     def submit_key():
-        with open(private_key(), 'w') as key_file:
+        with open(privatekey, 'w') as key_file:
             key_file.write(key_entry.get("1.0", "end-1c"))  # get text from Text widget
         window.destroy()
     submit_button = Button(window, text="Submit", font=("Courier", 14), bg='black', fg='green2', command=submit_key,  borderwidth=2, relief="groove")

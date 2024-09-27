@@ -1,7 +1,10 @@
 import tkinter as tk
 from .tool_functions.encrypt_decrypt import encrypt_message, decrypt_message
 from .tool_functions.qr_keys_output import create_qr_code
-from .tool_functions.absolute_paths import private_key
+from .tool_functions.absolute_paths import private_key, public_key, figerprint_pubkey
+privatekey = private_key()
+finger_print_pubkey = figerprint_pubkey()
+
 def create_encrypt_interface():
     window = tk.Tk()
     window.title("Encryption")
@@ -20,7 +23,7 @@ def create_encrypt_interface():
 
     def encrypt_message_tk():
         message = message_entry.get("1.0", tk.END)
-        encrypted_message = encrypt_message(message, 'keys/fingerprint_pubkey.asc')
+        encrypted_message = encrypt_message(message, finger_print_pubkey)
         encrypted_message = encrypted_message
         encrypted_message_text.insert(tk.END, encrypted_message)
 
@@ -72,7 +75,7 @@ def create_decrypt_interface():
     def decrypt_message_tk():
         encrypted_message = encrypted_message_entry.get("1.0", tk.END)
         encrypted_message = encrypted_message
-        decrypted_message = decrypt_message(encrypted_message, private_key())
+        decrypted_message = decrypt_message(encrypted_message, privatekey)
         decrypted_message_text.insert(tk.END, decrypted_message)
     def close_window(event):
         window.destroy()

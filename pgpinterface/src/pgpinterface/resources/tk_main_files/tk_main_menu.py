@@ -6,13 +6,14 @@ from .tk_configs import configs_page
 from .first_acess_page import first_register
 from .tk_main_decry_encry import main_window
 from .tool_functions.absolute_paths import private_key, main_bg
+privatekey = private_key()
 
 def create_main_menu():
     global root
     root = ThemedTk(theme="clearlooks")
     root.configure(bg='black')
     root.title("Main Menu")
-    with open(private_key(), 'r') as file:
+    with open(privatekey, 'r') as file:
         priv_key = str(file.read())
 
         

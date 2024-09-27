@@ -4,6 +4,7 @@ from tkinter import Toplevel, Text, Button, Label
 from ttkthemes import ThemedTk
 from .tool_functions.contacts import create_the_window_contacts
 from .tool_functions.absolute_paths import public_key
+publickey = public_key()
 def contacts_page():
     global window
     window = ThemedTk(theme="clearlooks")
@@ -38,8 +39,8 @@ def contacts_page():
                     raise ValueError("Failed to import the public key")
 
             # Write the key to a file
-            with open(public_key(), 'w') as key_file:
-                key_file.write(public_key)
+            with open(publickey, 'w') as key_file:
+                key_file.write(publickey)
 
             public_key_window.destroy()
             
